@@ -29,6 +29,16 @@ class YogaService {
     })
   }
 
+  async searchByKind(kind) {
+    if (kind == "All Kinds") {
+      this.getPoses()
+      return
+    }
+    const res = await yogaApi.get(`/categories?name=${kind}`)
+    logger.log(res.data)
+    AppState.poses = res.data.poses.map((posePOJO) => new Pose(posePOJO))
+  }
+
 }
 
 export const yogaService = new YogaService()
