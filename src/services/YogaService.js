@@ -9,22 +9,23 @@ class YogaService {
   async getPoses() {
     const res = await yogaApi.get("/poses")
     AppState.poses = res.data.map((posePOJO) => new Pose(posePOJO))
-    logger.log(AppState.poses)
   }
 
-  async getBeginnerPoses() {
-    const res = await yogaApi.get("poses?level=beginner")
-    logger.log("Beginner poses res.data", res.data)
-    AppState.beginnerPoses = res.data.poses.map((posePOJO) => new PoseLevel(posePOJO))
-    logger.log(AppState.beginnerPoses)
-    logger.log("AppState poses array before checking", AppState.poses)
+
+  async getPosesByLevel(level) {
+    const res = await yogaApi.get(`poses?level=${level}`)
+    AppState.addLevelsArray = res.data.poses.map((posePOJO) => new PoseLevel(posePOJO))
     AppState.poses.forEach((pose) => {
-      for (let i = 0; i < AppState.beginnerPoses.length; i++) {
-        if (pose.englishName == AppState.beginnerPoses[i].name) {
-          pose.level = "Beginner"
+      for (let i = 0; i < AppState.addLevelsArray.length; i++) {
+        if (pose.englishName == AppState.addLevelsArray[i].name) {
+          pose.level = level[0].toUpperCase() + level.slice(1)
         }
       }
-      logger.log("AppState poses array after checking", AppState.poses)
+    })
+    AppState.poses.forEach((pose) => {
+      if (pose.englishName == "Bridge") {
+        pose.level = "Intermediate"
+      }
     })
   }
 

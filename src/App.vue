@@ -71,4 +71,15 @@ footer {
 .text-theme-maroon {
   color: var(--theme-maroon);
 }
+
+.btn-theme-maroon {
+  background-color: var(--theme-maroon);
+  color: var(--theme-beige);
+}
+
+.btn-theme-maroon:hover {
+  background-color: var(--theme-lightgreen);
+  color: var(--theme-maroon);
+  border: 1px solid var(--theme-maroon);
+}
 </style>

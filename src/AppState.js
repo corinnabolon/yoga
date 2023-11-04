@@ -8,5 +8,6 @@ export const AppState = reactive({
   /** @type {import('./models/Pose.js').Pose[]} */
   poses: [],
 
-  beginnerPoses: []
+  addLevelsArray: [],
+
 })
