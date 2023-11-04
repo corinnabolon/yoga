@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-theme-darkgreen d-flex justify-content-center">
+  <nav class="bg-theme-darkgreen d-flex justify-content-center pt-3 pt-md-0">
     <p class="fs-1 text-theme-maroon text-shadow-lightgreen">Yoga Positions</p>
   </nav>
 </template>

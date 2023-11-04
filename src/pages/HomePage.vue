@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid bg-theme-beige-lighten">
-    <section class="row">
-      <div class="col-12 bg-theme-darkgreen d-md-flex rounded mt-4 mb-3">
+    <section class="row justify-content-center">
+      <div class="col-11 col-md-12 bg-theme-darkgreen d-md-flex rounded mt-4 mb-3">
         <button @click="filterLevel('')" class="btn btn-theme-maroon w-100 mx-md-3 my-2">
           All Levels
         </button>
@@ -10,7 +10,7 @@
           {{ level[0].toUpperCase() + level.slice(1) }}
         </button>
       </div>
-      <div class="col-3 d-flex flex-column">
+      <div class="col-12 col-md-3 d-flex flex-column">
         <select v-model="wantedCategory"
           class="form-select form-select-lg mb-3 text-theme-maroon bg-theme-lightgreen py-0 search-button"
           aria-label=".form-select-lg example" id="kinds">
@@ -20,7 +20,7 @@
         <button @click="searchByKind(wantedCategory)" class="btn btn-theme-maroon ms-2 change-kind-button">Change
           Category</button>
       </div>
-      <div class="col-6 mt-3 d-flex align-items-center justify-content-center">
+      <div class="col-12 col-md-6 mt-5 mt-md-3 d-flex align-items-center justify-content-center">
         <p class="fs-1 text-theme-darkgreen text-shadow-maroon">{{ currentCategory }}</p>
       </div>
     </section>
