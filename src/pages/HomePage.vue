@@ -30,6 +30,9 @@
           <PoseCard :poseProp="pose" />
         </div>
       </div>
+      <div v-else>
+        Loading...
+      </div>
     </section>
   </div>
 </template>
